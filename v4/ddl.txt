@@ -1,0 +1,62 @@
+create table Test1.material_type
+(
+    id           bigint auto_increment
+        primary key,
+    title        varchar(255) null,
+    lost_percent double       null
+);
+
+create table Test1.product
+(
+    id               bigint auto_increment
+        primary key,
+    title            varchar(255) null,
+    sku              varchar(255) null,
+    minimal_price    double       null,
+    product_type_id  bigint       null,
+    material_type_id bigint       null
+);
+
+create table Test1.product_type
+(
+    id          bigint auto_increment
+        primary key,
+    title       varchar(255) null,
+    koefficient double       null
+);
+
+create table Test1.product_workshop
+(
+    id              bigint auto_increment
+        primary key,
+    product_id      bigint null,
+    workshop_id     bigint null,
+    production_time double null
+);
+
+create table Test1.user
+(
+    id          bigint auto_increment
+        primary key,
+    email       varchar(100) null,
+    password    varchar(255) null,
+    name        varchar(100) null,
+    mobilePhone varchar(200) null
+);
+
+create table Test1.workshop
+(
+    id               bigint auto_increment
+        primary key,
+    title            varchar(255) null,
+    workers_amount   int          null,
+    workshop_type_id bigint       null
+);
+
+create table Test1.workshop_type
+(
+    id    bigint auto_increment
+        primary key,
+    title varchar(255) null
+);
+
