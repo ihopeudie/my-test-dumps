@@ -41,11 +41,16 @@ create table if not exists product (
 );
 
 create table if not exists request (
-    id bigint auto_increment primary key,
-    product_id bigint,
-    partner_id bigint,
-    amount decimal(8, 2),
-
-    foreign key (product_id) references product(id),
+    id bigint auto_increment primary key,    
+    partner_id bigint,	
     foreign key (partner_id) references partner(id)
 );
+
+create table if not exists request_item (
+	 id bigint auto_increment primary key,
+     request_id bigint,
+     product_id bigint,
+     amount decimal(8, 2),
+     foreign key (request_id) references request(id),
+     foreign key (product_id) references product(id)
+)
